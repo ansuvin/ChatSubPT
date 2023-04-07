@@ -10,22 +10,26 @@ import UIKit
 import Then
 import SnapKit
 import PinLayout
-import FlexLayout
 
 import OpenAI
 
+import RxSwift
+
 class ViewController: UIViewController {
+    
+    var layoutModel = ChattingLayout()
+    
+    var disposeBag = DisposeBag()
     
     let openAI = OpenAI(apiToken: "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")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutModel.viewDidLoad(superView: self.view)
         
-        setUI()
-    }
-    
-    func setUI() {
         self.view.backgroundColor = .white
+        
+        bind()
     }
 
     func sayHelloGPT() {
@@ -40,21 +44,44 @@ class ViewController: UIViewController {
         }
     }
     
-    func chatGPT() {
-        let query = ChatQuery(model: .gpt3_5Turbo, messages: [Chat(role: "user", content: "4월에 제주도 가고싶은데 언제 가는게 좋을까?")],
+    func chatGPT(content: String) {
+        let query = ChatQuery(model: .gpt3_5Turbo, messages: [Chat(role: "user", content: content)],
                               maxTokens: 256,
                               presencePenalty: 0.6, frequencyPenalty: 0.6)
         
-        openAI.chats(query: query) { result in
+        openAI.chats(query: query) { [weak self] result in
+            guard let self = self else { return }
             print("result: \(result)")
             
             switch result {
             case .success(let success):
                 print("GPT: \(success.choices.map({$0.message}))")
+                let message = success.choices.first?.message.content
+                DispatchQueue.main.async {
+                    self.layoutModel.gptLabel.text = message
+                }
             case .failure(let failure):
                 print("error")
             }
         }
+    }
+    
+    /// 일단 대충 만들게
+    func bind() {
+        layoutModel.chatInputBar.sendButtonView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { owner, _ in
+                print("눌림")
+                guard let text = owner.layoutModel.chatInputBar.inputTextView.text,
+                      !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+                
+                print("text: \(text)")
+                
+                owner.layoutModel.myLabel.text = text
+                owner.chatGPT(content: text)
+            }).disposed(by: disposeBag)
     }
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F03BE18029E0029800429E8F /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F03BE17F29E0029800429E8F /* RxGesture */; };
 		F09821E629DFB15E0095F62A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E529DFB15E0095F62A /* AppDelegate.swift */; };
 		F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E729DFB15E0095F62A /* SceneDelegate.swift */; };
 		F09821EA29DFB15E0095F62A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E929DFB15E0095F62A /* ViewController.swift */; };
@@ -14,12 +15,16 @@
 		F09821F229DFB1600095F62A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09821F029DFB1600095F62A /* LaunchScreen.storyboard */; };
 		F09821FB29DFB1AB0095F62A /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = F09821FA29DFB1AB0095F62A /* OpenAI */; };
 		F09821FE29DFCE520095F62A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F09821FD29DFCE520095F62A /* SnapKit */; };
-		F098220029DFCE520095F62A /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F09821FF29DFCE520095F62A /* SnapKit-Dynamic */; };
 		F098220329DFCE6C0095F62A /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = F098220229DFCE6C0095F62A /* Then */; };
-		F098220629DFCE9F0095F62A /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F098220529DFCE9F0095F62A /* FlexLayout */; };
 		F098220929DFCEB70095F62A /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F098220829DFCEB70095F62A /* PinLayout */; };
 		F098220C29DFD11F0095F62A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F098220B29DFD11F0095F62A /* RxCocoa */; };
 		F098220E29DFD11F0095F62A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F098220D29DFD11F0095F62A /* RxRelay */; };
+		F098221729DFD3F10095F62A /* ChattingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098221629DFD3F10095F62A /* ChattingLayout.swift */; };
+		F098221929DFDD270095F62A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098221829DFDD270095F62A /* CustomView.swift */; };
+		F098221B29DFDD520095F62A /* ChatInputBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098221A29DFDD520095F62A /* ChatInputBarView.swift */; };
+		F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098222029DFEA100095F62A /* ColorExtensions.swift */; };
+		F098222829DFF0880095F62A /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F098222729DFF0880095F62A /* FlexLayout */; };
+		F098222A29DFFEE90095F62A /* ChattingLayout+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		F09821EE29DFB1600095F62A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F09821F129DFB1600095F62A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F09821F329DFB1600095F62A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F098221629DFD3F10095F62A /* ChattingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingLayout.swift; sourceTree = "<group>"; };
+		F098221829DFDD270095F62A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		F098221A29DFDD520095F62A /* ChatInputBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputBarView.swift; sourceTree = "<group>"; };
+		F098222029DFEA100095F62A /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingLayout+Keyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,12 +47,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F098222829DFF0880095F62A /* FlexLayout in Frameworks */,
 				F098220929DFCEB70095F62A /* PinLayout in Frameworks */,
+				F03BE18029E0029800429E8F /* RxGesture in Frameworks */,
 				F09821FB29DFB1AB0095F62A /* OpenAI in Frameworks */,
 				F09821FE29DFCE520095F62A /* SnapKit in Frameworks */,
 				F098220C29DFD11F0095F62A /* RxCocoa in Frameworks */,
-				F098220629DFCE9F0095F62A /* FlexLayout in Frameworks */,
-				F098220029DFCE520095F62A /* SnapKit-Dynamic in Frameworks */,
 				F098220E29DFD11F0095F62A /* RxRelay in Frameworks */,
 				F098220329DFCE6C0095F62A /* Then in Frameworks */,
 			);
@@ -56,6 +66,7 @@
 			children = (
 				F09821E429DFB15E0095F62A /* ChatGPTSub */,
 				F09821E329DFB15E0095F62A /* Products */,
+				F098222229DFED570095F62A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +81,7 @@
 		F09821E429DFB15E0095F62A /* ChatGPTSub */ = {
 			isa = PBXGroup;
 			children = (
+				F098221E29DFE9E20095F62A /* Utils */,
 				F098220F29DFD1570095F62A /* Main */,
 				F09821E529DFB15E0095F62A /* AppDelegate.swift */,
 				F09821E729DFB15E0095F62A /* SceneDelegate.swift */,
@@ -110,6 +122,8 @@
 		F098221329DFD1870095F62A /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				F098221829DFDD270095F62A /* CustomView.swift */,
+				F098221A29DFDD520095F62A /* ChatInputBarView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -124,8 +138,33 @@
 		F098221529DFD1980095F62A /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				F098221629DFD3F10095F62A /* ChattingLayout.swift */,
+				F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		F098221E29DFE9E20095F62A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F098221F29DFE9F70095F62A /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F098221F29DFE9F70095F62A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F098222029DFEA100095F62A /* ColorExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F098222229DFED570095F62A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,12 +186,12 @@
 			packageProductDependencies = (
 				F09821FA29DFB1AB0095F62A /* OpenAI */,
 				F09821FD29DFCE520095F62A /* SnapKit */,
-				F09821FF29DFCE520095F62A /* SnapKit-Dynamic */,
 				F098220229DFCE6C0095F62A /* Then */,
-				F098220529DFCE9F0095F62A /* FlexLayout */,
 				F098220829DFCEB70095F62A /* PinLayout */,
 				F098220B29DFD11F0095F62A /* RxCocoa */,
 				F098220D29DFD11F0095F62A /* RxRelay */,
+				F098222729DFF0880095F62A /* FlexLayout */,
+				F03BE17F29E0029800429E8F /* RxGesture */,
 			);
 			productName = ChatGPTSub;
 			productReference = F09821E229DFB15E0095F62A /* ChatGPTSub.app */;
@@ -189,6 +228,7 @@
 				F098220429DFCE9F0095F62A /* XCRemoteSwiftPackageReference "FlexLayout" */,
 				F098220729DFCEB70095F62A /* XCRemoteSwiftPackageReference "PinLayout" */,
 				F098220A29DFD11F0095F62A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				F03BE17E29E0029800429E8F /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = F09821E329DFB15E0095F62A /* Products */;
 			projectDirPath = "";
@@ -216,9 +256,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F098221929DFDD270095F62A /* CustomView.swift in Sources */,
 				F09821EA29DFB15E0095F62A /* ViewController.swift in Sources */,
 				F09821E629DFB15E0095F62A /* AppDelegate.swift in Sources */,
+				F098221B29DFDD520095F62A /* ChatInputBarView.swift in Sources */,
+				F098222A29DFFEE90095F62A /* ChattingLayout+Keyboard.swift in Sources */,
 				F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */,
+				F098221729DFD3F10095F62A /* ChattingLayout.swift in Sources */,
+				F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,12 +402,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GP9D94CZ57;
+				DEVELOPMENT_TEAM = CBM8C92C3U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatGPTSub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -385,12 +430,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GP9D94CZ57;
+				DEVELOPMENT_TEAM = CBM8C92C3U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatGPTSub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -430,6 +475,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F03BE17E29E0029800429E8F /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		F09821F929DFB1AB0095F62A /* XCRemoteSwiftPackageReference "OpenAI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
@@ -481,6 +534,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F03BE17F29E0029800429E8F /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F03BE17E29E0029800429E8F /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		F09821FA29DFB1AB0095F62A /* OpenAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F09821F929DFB1AB0095F62A /* XCRemoteSwiftPackageReference "OpenAI" */;
@@ -491,20 +549,10 @@
 			package = F09821FC29DFCE520095F62A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		F09821FF29DFCE520095F62A /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F09821FC29DFCE520095F62A /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		F098220229DFCE6C0095F62A /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F098220129DFCE6C0095F62A /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
-		};
-		F098220529DFCE9F0095F62A /* FlexLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F098220429DFCE9F0095F62A /* XCRemoteSwiftPackageReference "FlexLayout" */;
-			productName = FlexLayout;
 		};
 		F098220829DFCEB70095F62A /* PinLayout */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -520,6 +568,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F098220A29DFD11F0095F62A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		F098222729DFF0880095F62A /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F098220429DFCE9F0095F62A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
