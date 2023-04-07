@@ -45,7 +45,10 @@ class ViewController: UIViewController {
     }
     
     func chatGPT(content: String) {
-        let query = ChatQuery(model: .gpt3_5Turbo, messages: [Chat(role: "user", content: content)],
+        /// 이거 messages를 계속 쌓아야 할듯
+        /// response 줄때도 Chat 타입으로 주니까 그냥 이걸 쌓아야할듯
+        /// 그러면 대화내용을 기억하겠지?
+        let query = ChatQuery(model: .gpt3_5Turbo, messages: [Chat(role: .user, content: content)],
                               maxTokens: 256,
                               presencePenalty: 0.6, frequencyPenalty: 0.6)
         
@@ -61,7 +64,7 @@ class ViewController: UIViewController {
                     self.layoutModel.gptLabel.text = message
                 }
             case .failure(let failure):
-                print("error")
+                print("error: \(failure.localizedDescription)")
             }
         }
     }
