@@ -69,7 +69,7 @@ class AssistantCell: UITableViewCell, CommonCell {
     func setConstraints() {
         bgView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(8)
-            $0.right.equalToSuperview().inset(12)
+            $0.left.equalToSuperview().inset(12)
             $0.width.lessThanOrEqualToSuperview().offset(-100)
         }
         
