@@ -40,9 +40,9 @@ class ViewController: UIViewController {
     
     func testAppend() {
         chatStory.append(Chat(role: .user, content: "안녕 ChatCPT!"))
-        chatStory.append(Chat(role: .system, content: "네 안녕하세요"))
+        chatStory.append(Chat(role: .assistant, content: "네 안녕하세요"))
         chatStory.append(Chat(role: .user, content: "스타벅스에 음료 하나 추천해줘"))
-        chatStory.append(Chat(role: .system, content: "스타벅스에서는 돌체 콜드브루 라떼가 맛있습니다. 더 도와드릴게 있나요?"))
+        chatStory.append(Chat(role: .assistant, content: "스타벅스에서는 돌체 콜드브루 라떼가 맛있습니다. 더 도와드릴게 있나요?"))
         
         layoutModel.tableViewUpdate()
     }
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
                 print("GPT: \(success.choices.map({$0.message}))")
                 guard let chat = success.choices.first?.message else { return }
                 self.chatStory.append(chat)
-                let message = chat.content
+                
                 DispatchQueue.main.async {
                     self.layoutModel.tableViewUpdate()
                 }

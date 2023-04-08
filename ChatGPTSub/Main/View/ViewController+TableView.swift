@@ -29,9 +29,11 @@ extension ViewController: UITableViewDataSource {
             cell.configCell(data)
             
             return cell
-        case "system":
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyCell.identifier, for: indexPath) as? MyCell else { return UITableViewCell()
+        case "assistant":
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AssistantCell.identifier, for: indexPath) as? AssistantCell else { return UITableViewCell()
             }
+            
+            cell.configCell(data)
             
             return cell
         default:

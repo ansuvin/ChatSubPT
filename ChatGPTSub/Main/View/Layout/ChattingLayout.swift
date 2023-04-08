@@ -27,6 +27,7 @@ class ChattingLayout: NSObject {
         $0.separatorStyle = .none
         
         $0.register(MyCell.self, forCellReuseIdentifier: MyCell.identifier)
+        $0.register(AssistantCell.self, forCellReuseIdentifier: AssistantCell.identifier)
     }
     
     var chatInputBar = ChatInputBarView()
