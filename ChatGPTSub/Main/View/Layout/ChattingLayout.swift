@@ -21,36 +21,13 @@ class ChattingLayout: NSObject {
         $0.backgroundColor = .white
     }
     
-    var stackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 8
+    var tableView = UITableView().then {
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = 50
+        $0.separatorStyle = .none
+        
+        $0.register(MyCell.self, forCellReuseIdentifier: MyCell.identifier)
     }
-    
-    var myContainerView = UIView().then {
-        $0.layer.cornerRadius = 8
-        $0.backgroundColor = .primary200
-    }
-    
-    var gptContainerView = UIView().then {
-        $0.layer.cornerRadius = 8
-        $0.backgroundColor = .primary200
-    }
-    
-    var myLabel = UILabel().then {
-        $0.numberOfLines = 0
-        $0.font = .systemFont(ofSize: 14)
-        $0.textAlignment = .left
-        $0.text = "MyLabel:..."
-    }
-    
-    var gptLabel = UILabel().then {
-        $0.numberOfLines = 0
-        $0.font = .systemFont(ofSize: 14)
-        $0.textAlignment = .right
-        $0.text = "GPTLabel:..."
-    }
-    
-    var emptyView = UIView()
     
     var chatInputBar = ChatInputBarView()
     
@@ -66,12 +43,7 @@ class ChattingLayout: NSObject {
     func addComponents(_ superView: UIView) {
         superView.addSubview(layout)
         
-        [stackView, chatInputBar].forEach(layout.addSubview(_:))
-        
-        [myContainerView, gptContainerView, emptyView].forEach(stackView.addArrangedSubview(_:))
-        
-        [myLabel].forEach(myContainerView.addSubview(_:))
-        [gptLabel].forEach(gptContainerView.addSubview(_:))
+        [tableView, chatInputBar].forEach(layout.addSubview(_:))
     }
     
     func setConstraints(_ superView: UIView) {
@@ -79,7 +51,7 @@ class ChattingLayout: NSObject {
             $0.edges.equalToSuperview().inset(UIApplication.shared.windows.first?.safeAreaInsets ?? .zero)
         }
 
-        stackView.snp.makeConstraints {
+        tableView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.left.right.equalToSuperview().inset(12)
             $0.bottom.equalTo(chatInputBar.snp.top)
@@ -88,14 +60,6 @@ class ChattingLayout: NSObject {
         chatInputBar.snp.makeConstraints {
             $0.bottom.left.right.equalToSuperview()
         }
-
-        myLabel.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(10)
-        }
-
-        gptLabel.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(10)
-        }
     }
     
     func setDelegate() {
@@ -103,7 +67,7 @@ class ChattingLayout: NSObject {
     }
     
     func binding() {
-        stackView.rx.tapGesture()
+        layout.rx.tapGesture()
             .when(.recognized)
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
@@ -111,4 +75,9 @@ class ChattingLayout: NSObject {
                 owner.chatInputBar.endEditing()
             }).disposed(by: disposeBag)
     }
+    
+    func tableViewUpdate() {
+        tableView.reloadData()
+    }
+
 }

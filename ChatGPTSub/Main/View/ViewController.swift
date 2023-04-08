@@ -27,11 +27,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        layoutModel.viewDidLoad(superView: self.view)
         
         self.view.backgroundColor = .white
+        layoutModel.viewDidLoad(superView: self.view)
+        
         
         bind()
+        setDelegate()
+        
+        testAppend()
+    }
+    
+    func testAppend() {
+        chatStory.append(Chat(role: .user, content: "안녕 ChatCPT!"))
+        chatStory.append(Chat(role: .system, content: "네 안녕하세요"))
+        chatStory.append(Chat(role: .user, content: "스타벅스에 음료 하나 추천해줘"))
+        chatStory.append(Chat(role: .system, content: "스타벅스에서는 돌체 콜드브루 라떼가 맛있습니다. 더 도와드릴게 있나요?"))
+        
+        layoutModel.tableViewUpdate()
     }
 
     func sayHelloGPT() {
@@ -54,6 +67,8 @@ class ViewController: UIViewController {
         let chat = Chat(role: .user, content: content)
         chatStory.append(chat)
         
+        layoutModel.tableViewUpdate()
+        
         let query = ChatQuery(model: .gpt3_5Turbo, messages: self.chatStory,
                               maxTokens: 256,
                               presencePenalty: 0.6, frequencyPenalty: 0.6)
@@ -69,7 +84,7 @@ class ViewController: UIViewController {
                 self.chatStory.append(chat)
                 let message = chat.content
                 DispatchQueue.main.async {
-                    self.layoutModel.gptLabel.text = message
+                    self.layoutModel.tableViewUpdate()
                 }
             case .failure(let failure):
                 print("error: \(failure.localizedDescription)")
@@ -90,10 +105,14 @@ class ViewController: UIViewController {
                 
                 print("text: \(text)")
                 
-                owner.layoutModel.myLabel.text = text
+                owner.layoutModel.chatInputBar.clearInputView(true)
                 owner.chatGPT(content: text)
             }).disposed(by: disposeBag)
     }
 
+    func setDelegate() {
+        layoutModel.tableView.dataSource = self
+        layoutModel.tableView.delegate = self
+    }
 }
 

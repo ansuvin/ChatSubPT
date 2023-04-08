@@ -12,6 +12,14 @@
 		A0C6ECF629E142540069E839 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF529E142540069E839 /* Moya */; };
 		A0C6ECF829E142540069E839 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF729E142540069E839 /* ReactiveMoya */; };
 		A0C6ECFA29E142540069E839 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF929E142540069E839 /* RxMoya */; };
+		A0C6ECFD29E144E90069E839 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ECFC29E144E90069E839 /* MyCell.swift */; };
+		A0C6ECFF29E145640069E839 /* CommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ECFE29E145640069E839 /* CommonCell.swift */; };
+		A0C6ED0229E14B270069E839 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ED0129E14B270069E839 /* Lottie */; };
+		A0C6ED0929E14D2B0069E839 /* blud_dot_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A0C6ED0529E14D2A0069E839 /* blud_dot_loading.json */; };
+		A0C6ED0A29E14D2B0069E839 /* yellow_long_dot_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A0C6ED0629E14D2B0069E839 /* yellow_long_dot_loading.json */; };
+		A0C6ED0B29E14D2B0069E839 /* yellow_dot_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A0C6ED0729E14D2B0069E839 /* yellow_dot_loading.json */; };
+		A0C6ED0C29E14D2B0069E839 /* yellow_spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = A0C6ED0829E14D2B0069E839 /* yellow_spinner.json */; };
+		A0C6ED1029E152950069E839 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ED0F29E152950069E839 /* ViewController+TableView.swift */; };
 		F03BE18029E0029800429E8F /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F03BE17F29E0029800429E8F /* RxGesture */; };
 		F09821E629DFB15E0095F62A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E529DFB15E0095F62A /* AppDelegate.swift */; };
 		F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E729DFB15E0095F62A /* SceneDelegate.swift */; };
@@ -33,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0C6ECFC29E144E90069E839 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		A0C6ECFE29E145640069E839 /* CommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCell.swift; sourceTree = "<group>"; };
+		A0C6ED0529E14D2A0069E839 /* blud_dot_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blud_dot_loading.json; sourceTree = "<group>"; };
+		A0C6ED0629E14D2B0069E839 /* yellow_long_dot_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yellow_long_dot_loading.json; sourceTree = "<group>"; };
+		A0C6ED0729E14D2B0069E839 /* yellow_dot_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yellow_dot_loading.json; sourceTree = "<group>"; };
+		A0C6ED0829E14D2B0069E839 /* yellow_spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yellow_spinner.json; sourceTree = "<group>"; };
+		A0C6ED0F29E152950069E839 /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
 		F09821E229DFB15E0095F62A /* ChatGPTSub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTSub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09821E529DFB15E0095F62A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09821E729DFB15E0095F62A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C6ECFA29E142540069E839 /* RxMoya in Frameworks */,
+				A0C6ED0229E14B270069E839 /* Lottie in Frameworks */,
 				F098222829DFF0880095F62A /* FlexLayout in Frameworks */,
 				F098220929DFCEB70095F62A /* PinLayout in Frameworks */,
 				F03BE18029E0029800429E8F /* RxGesture in Frameworks */,
@@ -71,6 +87,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0C6ECFB29E144C20069E839 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0C6ECFE29E145640069E839 /* CommonCell.swift */,
+				A0C6ECFC29E144E90069E839 /* MyCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A0C6ED0329E14D0D0069E839 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0C6ED0429E14D190069E839 /* Lottie */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A0C6ED0429E14D190069E839 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				A0C6ED0529E14D2A0069E839 /* blud_dot_loading.json */,
+				A0C6ED0629E14D2B0069E839 /* yellow_long_dot_loading.json */,
+				A0C6ED0829E14D2B0069E839 /* yellow_spinner.json */,
+				A0C6ED0729E14D2B0069E839 /* yellow_dot_loading.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		F09821D929DFB15E0095F62A = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +135,7 @@
 		F09821E429DFB15E0095F62A /* ChatGPTSub */ = {
 			isa = PBXGroup;
 			children = (
+				A0C6ED0329E14D0D0069E839 /* Resources */,
 				F098221E29DFE9E20095F62A /* Utils */,
 				F098220F29DFD1570095F62A /* Main */,
 				F09821E529DFB15E0095F62A /* AppDelegate.swift */,
@@ -105,7 +150,6 @@
 		F098220F29DFD1570095F62A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F098221229DFD17D0095F62A /* ViewModel */,
 				F098221129DFD1770095F62A /* View */,
 			);
 			path = Main;
@@ -114,19 +158,13 @@
 		F098221129DFD1770095F62A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A0C6ECFB29E144C20069E839 /* Cells */,
 				F098221529DFD1980095F62A /* Layout */,
-				F098221429DFD18F0095F62A /* Cells */,
 				F098221329DFD1870095F62A /* CustomView */,
 				F09821E929DFB15E0095F62A /* ViewController.swift */,
+				A0C6ED0F29E152950069E839 /* ViewController+TableView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F098221229DFD17D0095F62A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F098221329DFD1870095F62A /* CustomView */ = {
@@ -136,13 +174,6 @@
 				F098221A29DFDD520095F62A /* ChatInputBarView.swift */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		F098221429DFD18F0095F62A /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		F098221529DFD1980095F62A /* Layout */ = {
@@ -207,6 +238,7 @@
 				A0C6ECF529E142540069E839 /* Moya */,
 				A0C6ECF729E142540069E839 /* ReactiveMoya */,
 				A0C6ECF929E142540069E839 /* RxMoya */,
+				A0C6ED0129E14B270069E839 /* Lottie */,
 			);
 			productName = ChatGPTSub;
 			productReference = F09821E229DFB15E0095F62A /* ChatGPTSub.app */;
@@ -246,6 +278,7 @@
 				F03BE17E29E0029800429E8F /* XCRemoteSwiftPackageReference "RxGesture" */,
 				A0C6ECEF29E142290069E839 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				A0C6ECF229E142540069E839 /* XCRemoteSwiftPackageReference "Moya" */,
+				A0C6ED0029E14B270069E839 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = F09821E329DFB15E0095F62A /* Products */;
 			projectDirPath = "";
@@ -263,6 +296,10 @@
 			files = (
 				F09821F229DFB1600095F62A /* LaunchScreen.storyboard in Resources */,
 				F09821EF29DFB1600095F62A /* Assets.xcassets in Resources */,
+				A0C6ED0B29E14D2B0069E839 /* yellow_dot_loading.json in Resources */,
+				A0C6ED0A29E14D2B0069E839 /* yellow_long_dot_loading.json in Resources */,
+				A0C6ED0929E14D2B0069E839 /* blud_dot_loading.json in Resources */,
+				A0C6ED0C29E14D2B0069E839 /* yellow_spinner.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +316,10 @@
 				F098221B29DFDD520095F62A /* ChatInputBarView.swift in Sources */,
 				F098222A29DFFEE90095F62A /* ChattingLayout+Keyboard.swift in Sources */,
 				F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */,
+				A0C6ECFD29E144E90069E839 /* MyCell.swift in Sources */,
 				F098221729DFD3F10095F62A /* ChattingLayout.swift in Sources */,
+				A0C6ECFF29E145640069E839 /* CommonCell.swift in Sources */,
+				A0C6ED1029E152950069E839 /* ViewController+TableView.swift in Sources */,
 				F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +548,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		A0C6ED0029E14B270069E839 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		F03BE17E29E0029800429E8F /* XCRemoteSwiftPackageReference "RxGesture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
@@ -591,6 +639,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A0C6ECF229E142540069E839 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		A0C6ED0129E14B270069E839 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0C6ED0029E14B270069E839 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		F03BE17F29E0029800429E8F /* RxGesture */ = {
 			isa = XCSwiftPackageProductDependency;
