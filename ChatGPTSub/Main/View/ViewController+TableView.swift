@@ -14,11 +14,11 @@ import RxSwift
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatStory.count
+        return viewModel.chatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = chatStory[indexPath.row]
+        let data = viewModel.chatList[indexPath.row]
         
         switch data.role {
         case "user":
