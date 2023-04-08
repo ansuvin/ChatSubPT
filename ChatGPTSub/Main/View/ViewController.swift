@@ -34,37 +34,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
+        
+        // setDelegate ->  LayoutModel -> ViewController -> ViewMode 순서로 bind
+        setDelegate()
         layoutModel.viewDidLoad(superView: self.view)
+        layoutModel.bind(to: viewModel)
+        bind(to: viewModel)
         viewModel.viewDidLoad()
         
-        
-        bind()
-        setDelegate()
-    }
-    
-    /// 일단 대충 만들게
-    func bind() {
-        viewModel._chatList
-            .withUnretained(self)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { owner, _ in
-                owner.layoutModel.tableViewUpdate()
-            }).disposed(by: disposeBag)
-        
-        layoutModel.chatInputBar.sendButtonView.rx.tapGesture()
-            .when(.recognized)
-            .withUnretained(self)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { owner, _ in
-                print("눌림")
-                guard let text = owner.layoutModel.chatInputBar.inputTextView.text,
-                      !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-                
-                print("text: \(text)")
-                
-                owner.layoutModel.chatInputBar.clearInputView(true)
-                owner.viewModel.sendMsg(msg: text)
-            }).disposed(by: disposeBag)
     }
 
     func setDelegate() {

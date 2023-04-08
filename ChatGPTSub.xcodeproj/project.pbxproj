@@ -23,6 +23,8 @@
 		A0C6ED1229E15A160069E839 /* AssistantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ED1129E15A160069E839 /* AssistantCell.swift */; };
 		A0C6ED1529E1607E0069E839 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ED1429E1607E0069E839 /* ChattingViewModel.swift */; };
 		A0C6ED1929E1686B0069E839 /* ChattingViewModel+Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ED1829E1686B0069E839 /* ChattingViewModel+Input.swift */; };
+		A0C6ED1B29E16EBC0069E839 /* ViewController+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ED1A29E16EBC0069E839 /* ViewController+Bind.swift */; };
+		A0C6ED1D29E170860069E839 /* ChattingLayout+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C6ED1C29E170860069E839 /* ChattingLayout+Bind.swift */; };
 		F03BE18029E0029800429E8F /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F03BE17F29E0029800429E8F /* RxGesture */; };
 		F09821E629DFB15E0095F62A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E529DFB15E0095F62A /* AppDelegate.swift */; };
 		F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09821E729DFB15E0095F62A /* SceneDelegate.swift */; };
@@ -54,6 +56,8 @@
 		A0C6ED1129E15A160069E839 /* AssistantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantCell.swift; sourceTree = "<group>"; };
 		A0C6ED1429E1607E0069E839 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		A0C6ED1829E1686B0069E839 /* ChattingViewModel+Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingViewModel+Input.swift"; sourceTree = "<group>"; };
+		A0C6ED1A29E16EBC0069E839 /* ViewController+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Bind.swift"; sourceTree = "<group>"; };
+		A0C6ED1C29E170860069E839 /* ChattingLayout+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingLayout+Bind.swift"; sourceTree = "<group>"; };
 		F09821E229DFB15E0095F62A /* ChatGPTSub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTSub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09821E529DFB15E0095F62A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09821E729DFB15E0095F62A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 				F098221329DFD1870095F62A /* CustomView */,
 				F09821E929DFB15E0095F62A /* ViewController.swift */,
 				A0C6ED0F29E152950069E839 /* ViewController+TableView.swift */,
+				A0C6ED1A29E16EBC0069E839 /* ViewController+Bind.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			children = (
 				F098221629DFD3F10095F62A /* ChattingLayout.swift */,
 				F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */,
+				A0C6ED1C29E170860069E839 /* ChattingLayout+Bind.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C6ED1529E1607E0069E839 /* ChattingViewModel.swift in Sources */,
+				A0C6ED1B29E16EBC0069E839 /* ViewController+Bind.swift in Sources */,
 				A0C6ED1229E15A160069E839 /* AssistantCell.swift in Sources */,
 				F098221929DFDD270095F62A /* CustomView.swift in Sources */,
 				F09821EA29DFB15E0095F62A /* ViewController.swift in Sources */,
@@ -338,6 +345,7 @@
 				F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */,
 				A0C6ECFD29E144E90069E839 /* MyCell.swift in Sources */,
 				F098221729DFD3F10095F62A /* ChattingLayout.swift in Sources */,
+				A0C6ED1D29E170860069E839 /* ChattingLayout+Bind.swift in Sources */,
 				A0C6ECFF29E145640069E839 /* CommonCell.swift in Sources */,
 				A0C6ED1029E152950069E839 /* ViewController+TableView.swift in Sources */,
 				F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */,

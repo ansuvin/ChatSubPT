@@ -38,7 +38,6 @@ class ChattingLayout: NSObject {
         addComponents(superView)
         setConstraints(superView)
         addNotification()
-        binding()
     }
     
     func addComponents(_ superView: UIView) {
@@ -65,16 +64,6 @@ class ChattingLayout: NSObject {
     
     func setDelegate() {
         
-    }
-    
-    func binding() {
-        layout.rx.tapGesture()
-            .when(.recognized)
-            .withUnretained(self)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { owner, _ in
-                owner.chatInputBar.endEditing()
-            }).disposed(by: disposeBag)
     }
     
     func tableViewUpdate() {
