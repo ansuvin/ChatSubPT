@@ -95,12 +95,12 @@ class ChatInputBarView: CustomView {
         }
         
         textViewContainer.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 3, left: 0, bottom: 3, right: 0))
         }
         
         inputTextView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 9, left: 16, bottom: 10, right: 16))
-            $0.height.equalTo(22)
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 9, left: 12, bottom: 10, right: 12))
+            $0.height.equalTo(18)
         }
         
         emptyView.snp.makeConstraints {
@@ -187,7 +187,7 @@ extension ChatInputBarView: UITextViewDelegate {
     func setInputViewOffset() {
         let size = inputTextView.bounds.size
         let newSize = inputTextView.sizeThatFits(CGSize(width: size.width, height: CGFloat.greatestFiniteMagnitude))
-        if newSize.height < 50 {
+        if newSize.height < 60 {
             inputTextView.isScrollEnabled = false
             if size.height != newSize.height {
                 self.inputTextView.snp.updateConstraints {
@@ -197,7 +197,7 @@ extension ChatInputBarView: UITextViewDelegate {
         } else {
             inputTextView.isScrollEnabled = true
             self.inputTextView.snp.updateConstraints {
-                $0.height.equalTo(66)
+                $0.height.equalTo(72)
             }
         }
     }
