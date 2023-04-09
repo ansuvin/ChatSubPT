@@ -32,6 +32,11 @@ class ChattingLayout: NSObject {
     
     var chatInputBar = ChatInputBarView()
     
+    var resendView = ResendView().then {
+        $0.isHidden = true
+        $0.alpha = 0
+    }
+    
     var keyboardPopState = false
     
     var disposeBag = DisposeBag()
@@ -45,7 +50,7 @@ class ChattingLayout: NSObject {
     func addComponents(_ superView: UIView) {
         superView.addSubview(layout)
         
-        [tableView, chatInputBar].forEach(layout.addSubview(_:))
+        [tableView, chatInputBar, resendView].forEach(layout.addSubview(_:))
     }
     
     func setConstraints(_ superView: UIView) {
@@ -62,6 +67,11 @@ class ChattingLayout: NSObject {
         chatInputBar.snp.makeConstraints {
             $0.bottom.left.right.equalToSuperview()
         }
+        
+        resendView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.centerX.equalToSuperview()
+        }
     }
     
     func setDelegate() {
@@ -70,6 +80,19 @@ class ChattingLayout: NSObject {
     
     func tableViewUpdate() {
         tableView.reloadData()
+    }
+    
+    func showResendView(conetents text: String) {
+        resendView.setContents(text)
+        resendView.show()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+            self.hideResendView()
+        }
+    }
+    
+    func hideResendView() {
+        resendView.hide()
     }
 
 }

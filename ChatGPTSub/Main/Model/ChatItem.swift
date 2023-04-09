@@ -32,4 +32,5 @@ enum ChatState {
     case normal
     case writing
     case responseWaiting
+    case error
 }

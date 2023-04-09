@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02025DC29E2E4AE00E4D323 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02025DB29E2E4AE00E4D323 /* CALayerExtensions.swift */; };
+		A02025DE29E2E81300E4D323 /* UIViewExetensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02025DD29E2E81300E4D323 /* UIViewExetensions.swift */; };
 		A027A1A929E28FE30061BCF3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027A1A829E28FE30061BCF3 /* DateExtensions.swift */; };
 		A027A1AC29E291BA0061BCF3 /* ChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027A1AB29E291BA0061BCF3 /* ChatItem.swift */; };
+		A027A1AE29E2BEB80061BCF3 /* ResendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027A1AD29E2BEB80061BCF3 /* ResendView.swift */; };
 		A0C6ECF129E142290069E839 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF029E142290069E839 /* Toast */; };
 		A0C6ECF429E142540069E839 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF329E142540069E839 /* CombineMoya */; };
 		A0C6ECF629E142540069E839 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF529E142540069E839 /* Moya */; };
@@ -48,8 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A02025DB29E2E4AE00E4D323 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		A02025DD29E2E81300E4D323 /* UIViewExetensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExetensions.swift; sourceTree = "<group>"; };
 		A027A1A829E28FE30061BCF3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		A027A1AB29E291BA0061BCF3 /* ChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItem.swift; sourceTree = "<group>"; };
+		A027A1AD29E2BEB80061BCF3 /* ResendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendView.swift; sourceTree = "<group>"; };
 		A0C6ECFC29E144E90069E839 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		A0C6ECFE29E145640069E839 /* CommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCell.swift; sourceTree = "<group>"; };
 		A0C6ED0529E14D2A0069E839 /* blud_dot_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blud_dot_loading.json; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 			children = (
 				F098221829DFDD270095F62A /* CustomView.swift */,
 				F098221A29DFDD520095F62A /* ChatInputBarView.swift */,
+				A027A1AD29E2BEB80061BCF3 /* ResendView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 			children = (
 				F098222029DFEA100095F62A /* ColorExtensions.swift */,
 				A027A1A829E28FE30061BCF3 /* DateExtensions.swift */,
+				A02025DB29E2E4AE00E4D323 /* CALayerExtensions.swift */,
+				A02025DD29E2E81300E4D323 /* UIViewExetensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,8 +372,11 @@
 				F098221729DFD3F10095F62A /* ChattingLayout.swift in Sources */,
 				A0C6ED1D29E170860069E839 /* ChattingLayout+Bind.swift in Sources */,
 				A0C6ECFF29E145640069E839 /* CommonCell.swift in Sources */,
+				A02025DE29E2E81300E4D323 /* UIViewExetensions.swift in Sources */,
 				A0C6ED1029E152950069E839 /* ViewController+TableView.swift in Sources */,
+				A02025DC29E2E4AE00E4D323 /* CALayerExtensions.swift in Sources */,
 				F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */,
+				A027A1AE29E2BEB80061BCF3 /* ResendView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -70,10 +70,7 @@ extension DefaultChattingViewModel {
                 print("GPT: \(success.choices.map({$0.message}))")
                 guard let chat = success.choices.first?.message else { return }
                 
-                if let lastItem = chatList.last,
-                   lastItem.state == .responseWaiting {
-                    let _ = chatList.popLast()
-                }
+                removeResponseWaitingCell()
                 
                 let chatItem = ChatItem(contents: chat.content, role: Chat.Role(rawValue: chat.role) ?? .assistant)
                 self.chatList.append(chatItem)
@@ -82,6 +79,13 @@ extension DefaultChattingViewModel {
                 _scrollToBottom.onNext(true)
             case .failure(let failure):
                 print("error: \(failure.localizedDescription)")
+                
+                removeResponseWaitingCell()
+                updateErrorCell()
+                
+                guard let lastItem = chatList.last,
+                      let text = isValidInputText(lastItem.contents) else { return }
+                _showResendView.onNext(text)
             }
         }
     }
@@ -99,6 +103,21 @@ extension DefaultChattingViewModel {
             self.updateChatList()
             self._scrollToBottom.onNext(true)
         }
+    }
+    
+    func removeResponseWaitingCell() {
+        if let lastItem = chatList.last,
+           lastItem.state == .responseWaiting {
+            let _ = chatList.popLast()
+        }
+    }
+    
+    func updateErrorCell() {
+        guard let lastItem = chatList.popLast() else { return }
+        var errorItem = lastItem
+        errorItem.state = .error
+        
+        chatList.append(errorItem)
     }
     
     func isValidInputText(_ msg: String?) -> String? {

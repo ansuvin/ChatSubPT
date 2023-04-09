@@ -208,7 +208,7 @@ extension ChatInputBarView: UITextViewDelegate {
             sendButtonImageView.tintColor = .black
         } else {
             sendButtonView.isUserInteractionEnabled = true
-            sendButtonImageView.tintColor = .blue
+            sendButtonImageView.tintColor = .primary500
         }
     }
     
@@ -240,7 +240,7 @@ extension ChatInputBarView: UITextViewDelegate {
         textViewContainer.layer.borderWidth = 1
         
         if !inputTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            sendButtonImageView.tintColor = .blue
+            sendButtonImageView.tintColor = .primary500
         }
     }
     
@@ -268,6 +268,6 @@ extension ChatInputBarView: UITextViewDelegate {
         addButtonImageView.tintColor = .black
         
         sendButtonView.isUserInteractionEnabled = false
-        sendButtonImageView.tintColor = .blue
+        sendButtonImageView.tintColor = .primary500
     }
 }

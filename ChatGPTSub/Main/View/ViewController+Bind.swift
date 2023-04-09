@@ -31,5 +31,13 @@ extension ViewController {
             .subscribe(onNext: { owner, animated in
                 owner.scrollToBottom(animated)
             }).disposed(by: disposeBag)
+        
+        viewModel._showResendView
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { owner, text in
+                owner.layoutModel.tableViewUpdate()
+                owner.layoutModel.showResendView(conetents: text)
+            }).disposed(by: disposeBag)
     }
 }

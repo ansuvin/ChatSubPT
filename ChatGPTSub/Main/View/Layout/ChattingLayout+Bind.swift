@@ -13,6 +13,7 @@ import RxSwift
 extension ChattingLayout {
     func bind(to viewModel: ChattingViewModel) {
         bindChatInputBarView(to: viewModel)
+        bindResendView(to: viewModel)
         extraBind()
     }
     
@@ -31,6 +32,21 @@ extension ChattingLayout {
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 viewModel.writingMsg(msg: owner.chatInputBar.inputTextView.text)
+            }).disposed(by: disposeBag)
+    }
+    
+    func bindResendView(to viewModel: ChattingViewModel) {
+        resendView.deleteButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.hideResendView()
+            }).disposed(by: disposeBag)
+        
+        resendView.resendButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.hideResendView()
+                viewModel.sendMsg(msg: owner.resendView.contentsText)
             }).disposed(by: disposeBag)
     }
     

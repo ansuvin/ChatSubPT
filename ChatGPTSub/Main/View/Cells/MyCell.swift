@@ -24,6 +24,11 @@ class MyCell: UITableViewCell, CommonCell {
         $0.layer.cornerRadius = 8
     }
     
+    var containerStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 8
+    }
+    
     var stackView = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 4
@@ -50,6 +55,25 @@ class MyCell: UITableViewCell, CommonCell {
         $0.isHidden = true
     }
     
+    var errorTitleContainerView = UIView().then {
+        $0.isHidden = true
+    }
+    var errorIcon = UIImageView().then {
+        $0.image = UIImage(systemName: "exclamationmark.circle")
+        $0.tintColor = .red
+    }
+    
+    var errorLabel = UILabel().then {
+        $0.text = "답변 받지 못한 메세지"
+        $0.font = .systemFont(ofSize: 14)
+        $0.textColor = .gray20
+    }
+    
+    var lineView = UIView().then {
+        $0.backgroundColor = .gray90
+        $0.isHidden = true
+    }
+    
     var timeLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 12)
         $0.textColor = .grayA4
@@ -69,7 +93,11 @@ class MyCell: UITableViewCell, CommonCell {
     
     func addComponents() {
         [bgView, timeLabel].forEach(self.contentView.addSubview(_:))
-        [stackView].forEach(bgView.addSubview(_:))
+        [containerStackView].forEach(bgView.addSubview(_:))
+        
+        [stackView, lineView, errorTitleContainerView].forEach(containerStackView.addArrangedSubview(_:))
+        
+        [errorIcon, errorLabel].forEach(errorTitleContainerView.addSubview(_:))
         [contentsLabel, loadingIndicatorContainer, assistLabel].forEach(stackView.addArrangedSubview(_:))
         
         [loadingIndicator].forEach(loadingIndicatorContainer.addSubview(_:))
@@ -82,7 +110,7 @@ class MyCell: UITableViewCell, CommonCell {
             $0.width.lessThanOrEqualToSuperview().offset(-100)
         }
         
-        stackView.snp.makeConstraints {
+        containerStackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(10)
         }
         
@@ -107,6 +135,8 @@ class MyCell: UITableViewCell, CommonCell {
             setNomalState()
         case .writing:
             setWritingState()
+        case .error:
+            setErrorState()
         default:
             print("none")
         }
@@ -127,6 +157,26 @@ class MyCell: UITableViewCell, CommonCell {
         
     }
     
+    func setErrorState() {
+        errorTitleContainerView.isHidden = false
+        lineView.isHidden = false
+        
+        errorIcon.snp.makeConstraints {
+            $0.size.equalTo(18)
+            $0.top.left.equalToSuperview()
+        }
+        
+        errorLabel.snp.makeConstraints {
+            $0.left.equalTo(errorIcon.snp.right).offset(2)
+            $0.top.bottom.equalToSuperview()
+            $0.right.lessThanOrEqualToSuperview()
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
+    }
+    
     override func prepareForReuse() {
         contentsLabel.text = ""
         
@@ -136,5 +186,11 @@ class MyCell: UITableViewCell, CommonCell {
         loadingIndicatorContainer.isHidden = true
         loadingIndicator.stop()
         assistLabel.isHidden = true
+        
+        errorTitleContainerView.isHidden = true
+        lineView.isHidden = true
+        errorIcon.snp.removeConstraints()
+        errorLabel.snp.removeConstraints()
+        lineView.snp.removeConstraints()
     }
 }
