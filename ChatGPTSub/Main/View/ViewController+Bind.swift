@@ -11,7 +11,7 @@ import RxSwift
 
 extension ViewController {
     func bind(to viewModel: ChattingViewModel) {
-        viewModel._chatItemList
+        viewModel._updateChatItemList
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
@@ -23,6 +23,13 @@ extension ViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
                 owner.layoutModel.clearInputBar()
+            }).disposed(by: disposeBag)
+        
+        viewModel._scrollToBottom
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { owner, animated in
+                owner.scrollToBottom(animated)
             }).disposed(by: disposeBag)
     }
 }

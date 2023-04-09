@@ -22,9 +22,10 @@ protocol ChattingViewModelInput {
 }
 
 protocol ChattingViewModelOutput {
-    var _chatItemList: PublishSubject<Void> { get set }
+    var _updateChatItemList: PublishSubject<Void> { get set }
     
     var _clearInputBar: PublishSubject<Void> { get set }
+    var _scrollToBottom: PublishSubject<Bool> { get set }
 }
 
 protocol ChattingViewModel: ViewModelProtocol, ChattingViewModelInput, ChattingViewModelOutput {
@@ -37,9 +38,10 @@ protocol ChattingViewModel: ViewModelProtocol, ChattingViewModelInput, ChattingV
 class DefaultChattingViewModel: ChattingViewModel {
     var chatList: [ChatItem] = []
     
-    var _chatItemList: PublishSubject<Void> = .init()
+    var _updateChatItemList: PublishSubject<Void> = .init()
     
     var _clearInputBar: PublishSubject<Void> = .init()
+    var _scrollToBottom: PublishSubject<Bool> = .init()
     
     var disposeBag = DisposeBag()
     
@@ -67,7 +69,7 @@ class DefaultChattingViewModel: ChattingViewModel {
     }
     
     func updateChatList() {
-        _chatItemList.onNext(())
+        _updateChatItemList.onNext(())
     }
 
 }

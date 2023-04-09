@@ -24,6 +24,7 @@ extension DefaultChattingViewModel {
         chatList.append(chat)
         
         updateChatList()
+        _scrollToBottom.onNext(false)
         
         sendMsgToGPT()
         
@@ -40,12 +41,14 @@ extension DefaultChattingViewModel {
             chatList.append(writingCell)
             
             updateChatList()
+            _scrollToBottom.onNext(true)
         } else {
             guard lastItem.state == .writing else { return }
             
             let _ = chatList.popLast()
             
             updateChatList()
+            _scrollToBottom.onNext(true)
         }
         
     }
@@ -76,6 +79,7 @@ extension DefaultChattingViewModel {
                 self.chatList.append(chatItem)
                 
                 self.updateChatList()
+                _scrollToBottom.onNext(true)
             case .failure(let failure):
                 print("error: \(failure.localizedDescription)")
             }
@@ -87,10 +91,14 @@ extension DefaultChattingViewModel {
         
         guard lastItem.state != .responseWaiting else { return }
         
-        let writingCell = ChatItem(contents: "", role: .assistant, state: .responseWaiting)
-        chatList.append(writingCell)
         
-        updateChatList()
+        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+            let writingCell = ChatItem(contents: "", role: .assistant, state: .responseWaiting)
+            self.chatList.append(writingCell)
+            
+            self.updateChatList()
+            self._scrollToBottom.onNext(true)
+        }
     }
     
     func isValidInputText(_ msg: String?) -> String? {

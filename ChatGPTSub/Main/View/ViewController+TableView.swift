@@ -44,5 +44,9 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func scrollToBottom(_ animated: Bool) {
+        let lastIndex = IndexPath(row: viewModel.getChatItemList().count - 1, section: 0)
+        
+        layoutModel.tableView.scrollToRow(at: lastIndex, at: .bottom, animated: animated)
+    }
 }

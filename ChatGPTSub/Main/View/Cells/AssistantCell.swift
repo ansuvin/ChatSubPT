@@ -45,7 +45,7 @@ class AssistantCell: UITableViewCell, CommonCell {
         $0.numberOfLines = 0
         $0.font = .systemFont(ofSize: 14)
         $0.textAlignment = .left
-        $0.textColor = .grayA4
+        $0.textColor = .warmGrey
         $0.isHidden = true
     }
     
