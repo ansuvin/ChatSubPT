@@ -12,19 +12,50 @@ import OpenAI
 import RxSwift
 
 extension DefaultChattingViewModel {
-    func sendMsg(msg content: String) {
+    func sendMsg(msg content: String?) {
+        guard let content = isValidInputText(content) else { return }
+        
+        if let lastItem = chatList.last,
+           lastItem.state == .writing {
+            let _ = chatList.popLast()
+        }
+        
         let chat = ChatItem(contents: content, role: .user)
         chatList.append(chat)
         
         updateChatList()
         
         sendMsgToGPT()
+        
+        _clearInputBar.onNext(())
+    }
+    
+    func writingMsg(msg content: String?) {
+        guard let lastItem = chatList.last else { return }
+        
+        if let _ = isValidInputText(content) {
+            guard lastItem.state != .writing else { return }
+            
+            let writingCell = ChatItem(contents: "", role: .user, state: .writing)
+            chatList.append(writingCell)
+            
+            updateChatList()
+        } else {
+            guard lastItem.state == .writing else { return }
+            
+            let _ = chatList.popLast()
+            
+            updateChatList()
+        }
+        
     }
     
     func sendMsgToGPT() {
         let query = ChatQuery(model: .gpt3_5Turbo, messages: getChatQueryList(),
                               maxTokens: 256,
                               presencePenalty: 0.6, frequencyPenalty: 0.6)
+        
+        print("sendMSGToGPT")
         
         openAI.chats(query: query) { [weak self] result in
             guard let self = self else { return }
@@ -42,5 +73,15 @@ extension DefaultChattingViewModel {
                 print("error: \(failure.localizedDescription)")
             }
         }
+    }
+    
+    func isValidInputText(_ msg: String?) -> String? {
+        guard let text = msg,
+              !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              text != "Enter message" else {
+            return nil
+        }
+        
+        return text
     }
 }

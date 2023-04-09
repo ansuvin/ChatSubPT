@@ -26,6 +26,7 @@ class MyCell: UITableViewCell, CommonCell {
     
     var stackView = UIStackView().then {
         $0.axis = .horizontal
+        $0.spacing = 4
     }
     
     var contentsLabel = UILabel().then {
@@ -34,13 +35,14 @@ class MyCell: UITableViewCell, CommonCell {
         $0.textAlignment = .left
     }
     
-    var loadingIndicator = LottieAnimationView(name: "yello_dot_loading").then {
+    var loadingIndicator = LottieAnimationView(name: "yellow_dot_loading").then {
         $0.contentMode = .scaleAspectFit
         $0.loopMode = .loop
         $0.isHidden = true
     }
     
     var assistLabel = UILabel().then {
+        $0.text = "메세지를 작성중"
         $0.numberOfLines = 0
         $0.font = .systemFont(ofSize: 14)
         $0.textAlignment = .left
@@ -86,17 +88,47 @@ class MyCell: UITableViewCell, CommonCell {
             $0.bottom.equalTo(bgView)
             $0.right.equalTo(bgView.snp.left).offset(-4)
         }
+        
+        loadingIndicator.snp.makeConstraints {
+            $0.size.equalTo(17)
+        }
     }
     
     func configCell(_ model: ChatItem) {
         contentsLabel.text = model.contents
         timeLabel.text = model.insDate.timeStr
         
-        contentsLabel.sizeToFit()
+        switch model.state {
+        case .normal:
+            setNomalState()
+        case .writing:
+            setWritingState()
+        }
+        
+    }
+    
+    func setNomalState() {
+        
+    }
+    
+    func setWritingState() {
+        contentsLabel.isHidden = true
+        timeLabel.isHidden = true
+        
+        loadingIndicator.isHidden = false
+        loadingIndicator.play()
+        assistLabel.isHidden = false
         
     }
     
     override func prepareForReuse() {
         contentsLabel.text = ""
+        
+        contentsLabel.isHidden = false
+        timeLabel.isHidden = false
+        
+        loadingIndicator.isHidden = true
+        loadingIndicator.stop()
+        assistLabel.isHidden = true
     }
 }

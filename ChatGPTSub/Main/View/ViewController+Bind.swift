@@ -17,5 +17,12 @@ extension ViewController {
             .subscribe(onNext: { owner, _ in
                 owner.layoutModel.tableViewUpdate()
             }).disposed(by: disposeBag)
+        
+        viewModel._clearInputBar
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { owner, _ in
+                owner.layoutModel.clearInputBar()
+            }).disposed(by: disposeBag)
     }
 }

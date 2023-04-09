@@ -15,11 +15,20 @@ struct ChatItem {
     
     var insDate: Date
     
+    var state: ChatState
+    
     init(contents: String,
          role: Chat.Role,
-         insDate: Date = Date()) {
+         insDate: Date = Date(),
+         state: ChatState = .normal) {
         self.contents = contents
         self.role = role
         self.insDate = insDate
+        self.state = state
     }
+}
+
+enum ChatState {
+    case normal
+    case writing
 }

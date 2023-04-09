@@ -23,10 +23,14 @@ extension ChattingLayout {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
                 print("눌림")
-                guard let text = owner.isValidInputText() else { return }
                 
-                owner.chatInputBar.clearInputView(owner.keyboardPopState)
-                viewModel.sendMsg(msg: text)
+                viewModel.sendMsg(msg: owner.chatInputBar.inputTextView.text)
+            }).disposed(by: disposeBag)
+        
+        chatInputBar.inputTextView.rx.didChange
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                viewModel.writingMsg(msg: owner.chatInputBar.inputTextView.text)
             }).disposed(by: disposeBag)
     }
     
@@ -38,17 +42,5 @@ extension ChattingLayout {
             .subscribe(onNext: { owner, _ in
                 owner.chatInputBar.endEditing()
             }).disposed(by: disposeBag)
-    }
-    
-    
-    func isValidInputText() -> String? {
-        guard let text = chatInputBar.inputTextView.text,
-              !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
-              text != chatInputBar.placeHolderText else {
-            return nil
-        }
-        
-        print("validText: \(text)")
-        return text
     }
 }

@@ -46,4 +46,8 @@ extension ChattingLayout {
         
         self.keyboardPopState = false
     }
+    
+    func clearInputBar() {
+        chatInputBar.clearInputView(self.keyboardPopState)
+    }
 }

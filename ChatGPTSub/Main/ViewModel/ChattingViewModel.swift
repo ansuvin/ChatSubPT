@@ -17,11 +17,14 @@ protocol ViewModelProtocol {
 
 protocol ChattingViewModelInput {
     func viewDidLoad()
-    func sendMsg(msg: String)
+    func writingMsg(msg: String?)
+    func sendMsg(msg: String?)
 }
 
 protocol ChattingViewModelOutput {
     var _chatItemList: PublishSubject<Void> { get set }
+    
+    var _clearInputBar: PublishSubject<Void> { get set }
 }
 
 protocol ChattingViewModel: ViewModelProtocol, ChattingViewModelInput, ChattingViewModelOutput {
@@ -35,6 +38,8 @@ class DefaultChattingViewModel: ChattingViewModel {
     var chatList: [ChatItem] = []
     
     var _chatItemList: PublishSubject<Void> = .init()
+    
+    var _clearInputBar: PublishSubject<Void> = .init()
     
     var disposeBag = DisposeBag()
     

@@ -196,8 +196,8 @@
 				F098221529DFD1980095F62A /* Layout */,
 				F098221329DFD1870095F62A /* CustomView */,
 				F09821E929DFB15E0095F62A /* ViewController.swift */,
-				A0C6ED0F29E152950069E839 /* ViewController+TableView.swift */,
 				A0C6ED1A29E16EBC0069E839 /* ViewController+Bind.swift */,
+				A0C6ED0F29E152950069E839 /* ViewController+TableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
