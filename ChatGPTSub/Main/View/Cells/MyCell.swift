@@ -35,10 +35,10 @@ class MyCell: UITableViewCell, CommonCell {
         $0.textAlignment = .left
     }
     
+    var loadingIndicatorContainer = UIView().then { $0.isHidden = true }
     var loadingIndicator = LottieAnimationView(name: "yellow_dot_loading").then {
         $0.contentMode = .scaleAspectFit
         $0.loopMode = .loop
-        $0.isHidden = true
     }
     
     var assistLabel = UILabel().then {
@@ -70,7 +70,9 @@ class MyCell: UITableViewCell, CommonCell {
     func addComponents() {
         [bgView, timeLabel].forEach(self.contentView.addSubview(_:))
         [stackView].forEach(bgView.addSubview(_:))
-        [contentsLabel, loadingIndicator, assistLabel].forEach(stackView.addArrangedSubview(_:))
+        [contentsLabel, loadingIndicatorContainer, assistLabel].forEach(stackView.addArrangedSubview(_:))
+        
+        [loadingIndicator].forEach(loadingIndicatorContainer.addSubview(_:))
     }
     
     func setConstraints() {
@@ -91,6 +93,8 @@ class MyCell: UITableViewCell, CommonCell {
         
         loadingIndicator.snp.makeConstraints {
             $0.size.equalTo(17)
+            $0.left.right.equalToSuperview()
+            $0.centerY.equalToSuperview()
         }
     }
     
@@ -103,6 +107,8 @@ class MyCell: UITableViewCell, CommonCell {
             setNomalState()
         case .writing:
             setWritingState()
+        default:
+            print("none")
         }
         
     }
@@ -115,7 +121,7 @@ class MyCell: UITableViewCell, CommonCell {
         contentsLabel.isHidden = true
         timeLabel.isHidden = true
         
-        loadingIndicator.isHidden = false
+        loadingIndicatorContainer.isHidden = false
         loadingIndicator.play()
         assistLabel.isHidden = false
         
@@ -127,7 +133,7 @@ class MyCell: UITableViewCell, CommonCell {
         contentsLabel.isHidden = false
         timeLabel.isHidden = false
         
-        loadingIndicator.isHidden = true
+        loadingIndicatorContainer.isHidden = true
         loadingIndicator.stop()
         assistLabel.isHidden = true
     }

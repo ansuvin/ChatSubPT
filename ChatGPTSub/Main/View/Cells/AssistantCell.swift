@@ -26,6 +26,7 @@ class AssistantCell: UITableViewCell, CommonCell {
     
     var stackView = UIStackView().then {
         $0.axis = .horizontal
+        $0.spacing = 4
     }
     
     var contentsLabel = UILabel().then {
@@ -34,10 +35,10 @@ class AssistantCell: UITableViewCell, CommonCell {
         $0.textAlignment = .left
     }
     
-    var loadingIndicator = LottieAnimationView(name: "yello_long_dot_loading").then {
+    var loadingIndicatorContainer = UIView().then { $0.isHidden = true }
+    var loadingIndicator = LottieAnimationView(name: "yellow_dot_loading").then {
         $0.contentMode = .scaleAspectFit
         $0.loopMode = .loop
-        $0.isHidden = true
     }
     
     var assistLabel = UILabel().then {
@@ -68,7 +69,9 @@ class AssistantCell: UITableViewCell, CommonCell {
     func addComponents() {
         [bgView, timeLabel].forEach(self.contentView.addSubview(_:))
         [stackView].forEach(bgView.addSubview(_:))
-        [contentsLabel, loadingIndicator, assistLabel].forEach(stackView.addArrangedSubview(_:))
+        [contentsLabel, loadingIndicatorContainer, assistLabel].forEach(stackView.addArrangedSubview(_:))
+        
+        [loadingIndicator].forEach(loadingIndicatorContainer.addSubview(_:))
     }
     
     func setConstraints() {
@@ -86,16 +89,52 @@ class AssistantCell: UITableViewCell, CommonCell {
             $0.bottom.equalTo(bgView)
             $0.left.equalTo(bgView.snp.right).offset(4)
         }
+        
+        loadingIndicator.snp.makeConstraints {
+            $0.size.equalTo(17)
+            $0.left.right.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
     }
     
     func configCell(_ model: ChatItem) {
         contentsLabel.text = model.contents
         timeLabel.text = model.insDate.timeStr
         
-        contentsLabel.sizeToFit()
+        switch model.state {
+        case .normal:
+            setNomalState()
+        case .responseWaiting:
+            setResponseWaiting()
+        default:
+            print("none")
+        }
+        
+    }
+    
+    func setNomalState() {
+        
+    }
+    
+    func setResponseWaiting() {
+        contentsLabel.isHidden = true
+        timeLabel.isHidden = true
+        
+        loadingIndicatorContainer.isHidden = false
+        loadingIndicator.play()
+        
+        assistLabel.isHidden = false
+        assistLabel.text = "답변중"
     }
     
     override func prepareForReuse() {
         contentsLabel.text = ""
+        
+        contentsLabel.isHidden = false
+        timeLabel.isHidden = false
+        
+        loadingIndicatorContainer.isHidden = true
+        loadingIndicator.stop()
+        assistLabel.isHidden = true
     }
 }

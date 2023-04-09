@@ -31,4 +31,5 @@ struct ChatItem {
 enum ChatState {
     case normal
     case writing
+    case responseWaiting
 }
