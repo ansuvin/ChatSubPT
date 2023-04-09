@@ -32,6 +32,8 @@ class ChattingLayout: NSObject {
     
     var chatInputBar = ChatInputBarView()
     
+    var keyboardPopState = false
+    
     var disposeBag = DisposeBag()
     
     func viewDidLoad(superView: UIView) {

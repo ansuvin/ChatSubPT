@@ -31,6 +31,8 @@ extension ChattingLayout {
                 self.layout.layoutIfNeeded()
             }
         }
+        
+        self.keyboardPopState = true
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
@@ -41,5 +43,7 @@ extension ChattingLayout {
             
             self.layout.layoutIfNeeded()
         }
+        
+        self.keyboardPopState = false
     }
 }

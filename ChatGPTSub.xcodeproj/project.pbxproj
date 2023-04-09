@@ -215,8 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				F098221629DFD3F10095F62A /* ChattingLayout.swift */,
-				F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */,
 				A0C6ED1C29E170860069E839 /* ChattingLayout+Bind.swift */,
+				F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";

@@ -23,23 +23,32 @@ extension ChattingLayout {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
                 print("눌림")
-                guard let text = owner.chatInputBar.inputTextView.text,
-                      !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+                guard let text = owner.isValidInputText() else { return }
                 
-                print("text: \(text)")
-                
-                owner.chatInputBar.clearInputView(true)
+                owner.chatInputBar.clearInputView(owner.keyboardPopState)
                 viewModel.sendMsg(msg: text)
             }).disposed(by: disposeBag)
     }
     
     func extraBind() {
-        layout.rx.tapGesture()
+        tableView.rx.tapGesture()
             .when(.recognized)
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
                 owner.chatInputBar.endEditing()
             }).disposed(by: disposeBag)
+    }
+    
+    
+    func isValidInputText() -> String? {
+        guard let text = chatInputBar.inputTextView.text,
+              !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              text != chatInputBar.placeHolderText else {
+            return nil
+        }
+        
+        print("validText: \(text)")
+        return text
     }
 }
