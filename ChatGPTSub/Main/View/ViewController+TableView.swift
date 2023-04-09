@@ -21,7 +21,7 @@ extension ViewController: UITableViewDataSource {
         let data = viewModel.chatList[indexPath.row]
         
         switch data.role {
-        case "user":
+        case .user:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyCell.identifier, for: indexPath) as? MyCell else {
                 return UITableViewCell()
             }
@@ -29,7 +29,7 @@ extension ViewController: UITableViewDataSource {
             cell.configCell(data)
             
             return cell
-        case "assistant":
+        case .assistant:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AssistantCell.identifier, for: indexPath) as? AssistantCell else { return UITableViewCell()
             }
             

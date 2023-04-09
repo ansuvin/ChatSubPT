@@ -13,7 +13,7 @@ import RxSwift
 
 extension DefaultChattingViewModel {
     func sendMsg(msg content: String) {
-        let chat = Chat(role: .user, content: content)
+        let chat = ChatItem(contents: content, role: .user)
         chatList.append(chat)
         
         updateChatList()
@@ -22,7 +22,7 @@ extension DefaultChattingViewModel {
     }
     
     func sendMsgToGPT() {
-        let query = ChatQuery(model: .gpt3_5Turbo, messages: self.chatList,
+        let query = ChatQuery(model: .gpt3_5Turbo, messages: getChatQueryList(),
                               maxTokens: 256,
                               presencePenalty: 0.6, frequencyPenalty: 0.6)
         
@@ -34,7 +34,8 @@ extension DefaultChattingViewModel {
             case .success(let success):
                 print("GPT: \(success.choices.map({$0.message}))")
                 guard let chat = success.choices.first?.message else { return }
-                self.chatList.append(chat)
+                let chatItem = ChatItem(contents: chat.content, role: Chat.Role(rawValue: chat.role) ?? .assistant)
+                self.chatList.append(chatItem)
                 
                 self.updateChatList()
             case .failure(let failure):

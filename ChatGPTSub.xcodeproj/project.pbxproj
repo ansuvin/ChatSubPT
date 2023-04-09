@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A027A1A929E28FE30061BCF3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027A1A829E28FE30061BCF3 /* DateExtensions.swift */; };
+		A027A1AC29E291BA0061BCF3 /* ChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027A1AB29E291BA0061BCF3 /* ChatItem.swift */; };
 		A0C6ECF129E142290069E839 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF029E142290069E839 /* Toast */; };
 		A0C6ECF429E142540069E839 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF329E142540069E839 /* CombineMoya */; };
 		A0C6ECF629E142540069E839 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0C6ECF529E142540069E839 /* Moya */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A027A1A829E28FE30061BCF3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		A027A1AB29E291BA0061BCF3 /* ChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItem.swift; sourceTree = "<group>"; };
 		A0C6ECFC29E144E90069E839 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		A0C6ECFE29E145640069E839 /* CommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCell.swift; sourceTree = "<group>"; };
 		A0C6ED0529E14D2A0069E839 /* blud_dot_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blud_dot_loading.json; sourceTree = "<group>"; };
@@ -97,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A027A1AA29E291840061BCF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A027A1AB29E291BA0061BCF3 /* ChatItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A0C6ECFB29E144C20069E839 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +182,7 @@
 		F098220F29DFD1570095F62A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A027A1AA29E291840061BCF3 /* Model */,
 				A0C6ED1329E160360069E839 /* ViewModel */,
 				F098221129DFD1770095F62A /* View */,
 			);
@@ -220,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				F098222029DFEA100095F62A /* ColorExtensions.swift */,
+				A027A1A829E28FE30061BCF3 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,12 +348,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C6ED1529E1607E0069E839 /* ChattingViewModel.swift in Sources */,
+				A027A1A929E28FE30061BCF3 /* DateExtensions.swift in Sources */,
 				A0C6ED1B29E16EBC0069E839 /* ViewController+Bind.swift in Sources */,
 				A0C6ED1229E15A160069E839 /* AssistantCell.swift in Sources */,
 				F098221929DFDD270095F62A /* CustomView.swift in Sources */,
 				F09821EA29DFB15E0095F62A /* ViewController.swift in Sources */,
 				F09821E629DFB15E0095F62A /* AppDelegate.swift in Sources */,
 				A0C6ED1929E1686B0069E839 /* ChattingViewModel+Input.swift in Sources */,
+				A027A1AC29E291BA0061BCF3 /* ChatItem.swift in Sources */,
 				F098221B29DFDD520095F62A /* ChatInputBarView.swift in Sources */,
 				F098222A29DFFEE90095F62A /* ChattingLayout+Keyboard.swift in Sources */,
 				F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */,

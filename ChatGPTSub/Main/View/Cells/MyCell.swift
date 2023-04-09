@@ -48,6 +48,11 @@ class MyCell: UITableViewCell, CommonCell {
         $0.isHidden = true
     }
     
+    var timeLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 12)
+        $0.textColor = .grayA4
+    }
+    
     static var identifier = "MyCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -61,7 +66,7 @@ class MyCell: UITableViewCell, CommonCell {
     }
     
     func addComponents() {
-        [bgView].forEach(self.contentView.addSubview(_:))
+        [bgView, timeLabel].forEach(self.contentView.addSubview(_:))
         [stackView].forEach(bgView.addSubview(_:))
         [contentsLabel, loadingIndicator, assistLabel].forEach(stackView.addArrangedSubview(_:))
     }
@@ -76,12 +81,19 @@ class MyCell: UITableViewCell, CommonCell {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(10)
         }
+        
+        timeLabel.snp.makeConstraints {
+            $0.bottom.equalTo(bgView)
+            $0.right.equalTo(bgView.snp.left).offset(-4)
+        }
     }
     
-    func configCell(_ model: Chat) {
-        contentsLabel.text = model.content
+    func configCell(_ model: ChatItem) {
+        contentsLabel.text = model.contents
+        timeLabel.text = model.insDate.timeStr
         
         contentsLabel.sizeToFit()
+        
     }
     
     override func prepareForReuse() {

@@ -11,7 +11,7 @@ import RxSwift
 
 extension ViewController {
     func bind(to viewModel: ChattingViewModel) {
-        viewModel._chatList
+        viewModel._chatItemList
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
