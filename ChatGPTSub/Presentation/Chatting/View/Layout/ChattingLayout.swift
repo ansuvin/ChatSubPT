@@ -21,6 +21,10 @@ class ChattingLayout: NSObject {
         $0.backgroundColor = .white
     }
     
+    var headerBar = HeaderBar().then {
+        $0.setTitle("채팅창!")
+    }
+    
     var tableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = 50
@@ -50,16 +54,20 @@ class ChattingLayout: NSObject {
     func addComponents(_ superView: UIView) {
         superView.addSubview(layout)
         
-        [tableView, chatInputBar, resendView].forEach(layout.addSubview(_:))
+        [tableView, headerBar, chatInputBar, resendView].forEach(layout.addSubview(_:))
     }
     
     func setConstraints(_ superView: UIView) {
         layout.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIApplication.shared.windows.first?.safeAreaInsets ?? .zero)
         }
+        
+        headerBar.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+        }
 
         tableView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(headerBar.snp.bottom)
             $0.left.right.equalToSuperview().inset(12)
             $0.bottom.equalTo(chatInputBar.snp.top)
         }

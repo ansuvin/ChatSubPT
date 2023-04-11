@@ -53,6 +53,7 @@
 		F0A677D929E51DE100B95AFD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677D829E51DE100B95AFD /* MainViewModel.swift */; };
 		F0A677DB29E5203000B95AFD /* MainLayout+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */; };
 		F0A677DF29E5292000B95AFD /* UINavigationExetensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */; };
+		F0A677E229E52FD200B95AFD /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E129E52FD200B95AFD /* HeaderBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		F0A677D829E51DE100B95AFD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainLayout+Bind.swift"; sourceTree = "<group>"; };
 		F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationExetensions.swift; sourceTree = "<group>"; };
+		F0A677E129E52FD200B95AFD /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 		F0A677CF29E51C4A00B95AFD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F0A677E029E52F7400B95AFD /* CommonComponent */,
 				F0A677CE29E51C2000B95AFD /* Main */,
 				F098220F29DFD1570095F62A /* Chatting */,
 			);
@@ -315,6 +318,14 @@
 				F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		F0A677E029E52F7400B95AFD /* CommonComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F0A677E129E52FD200B95AFD /* HeaderBar.swift */,
+			);
+			path = CommonComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A677E229E52FD200B95AFD /* HeaderBar.swift in Sources */,
 				A0C6ED1529E1607E0069E839 /* ChattingViewModel.swift in Sources */,
 				F0A677D429E51C9E00B95AFD /* MainViewController.swift in Sources */,
 				A027A1A929E28FE30061BCF3 /* DateExtensions.swift in Sources */,
