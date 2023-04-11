@@ -54,6 +54,8 @@
 		F0A677DB29E5203000B95AFD /* MainLayout+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */; };
 		F0A677DF29E5292000B95AFD /* UINavigationExetensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */; };
 		F0A677E229E52FD200B95AFD /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E129E52FD200B95AFD /* HeaderBar.swift */; };
+		F0A677E429E53FF000B95AFD /* ChattingViewModel+OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E329E53FF000B95AFD /* ChattingViewModel+OpenAI.swift */; };
+		F0A677E629E5404000B95AFD /* ChattingViewModel+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E529E5404000B95AFD /* ChattingViewModel+Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainLayout+Bind.swift"; sourceTree = "<group>"; };
 		F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationExetensions.swift; sourceTree = "<group>"; };
 		F0A677E129E52FD200B95AFD /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
+		F0A677E329E53FF000B95AFD /* ChattingViewModel+OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingViewModel+OpenAI.swift"; sourceTree = "<group>"; };
+		F0A677E529E5404000B95AFD /* ChattingViewModel+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingViewModel+Cell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,8 @@
 			children = (
 				A0C6ED1429E1607E0069E839 /* ChattingViewModel.swift */,
 				A0C6ED1829E1686B0069E839 /* ChattingViewModel+Input.swift */,
+				F0A677E329E53FF000B95AFD /* ChattingViewModel+OpenAI.swift */,
+				F0A677E529E5404000B95AFD /* ChattingViewModel+Cell.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 				F0A677D429E51C9E00B95AFD /* MainViewController.swift in Sources */,
 				A027A1A929E28FE30061BCF3 /* DateExtensions.swift in Sources */,
 				A0C6ED1B29E16EBC0069E839 /* ChattingViewController+Bind.swift in Sources */,
+				F0A677E629E5404000B95AFD /* ChattingViewModel+Cell.swift in Sources */,
 				F0A677DB29E5203000B95AFD /* MainLayout+Bind.swift in Sources */,
 				A0C6ED1229E15A160069E839 /* AssistantCell.swift in Sources */,
 				F098221929DFDD270095F62A /* CustomView.swift in Sources */,
@@ -444,6 +451,7 @@
 				A0C6ED1929E1686B0069E839 /* ChattingViewModel+Input.swift in Sources */,
 				A027A1AC29E291BA0061BCF3 /* ChatItem.swift in Sources */,
 				F098221B29DFDD520095F62A /* ChatInputBarView.swift in Sources */,
+				F0A677E429E53FF000B95AFD /* ChattingViewModel+OpenAI.swift in Sources */,
 				F098222A29DFFEE90095F62A /* ChattingLayout+Keyboard.swift in Sources */,
 				F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */,
 				A0C6ECFD29E144E90069E839 /* MyCell.swift in Sources */,

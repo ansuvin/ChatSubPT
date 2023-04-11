@@ -20,8 +20,7 @@ extension DefaultChattingViewModel {
             let _ = chatList.popLast()
         }
         
-        let chat = ChatItem(contents: content, role: .user)
-        chatList.append(chat)
+        addUserMsgCell(content)
         
         updateChatList()
         _scrollToBottom.onNext(false)
@@ -37,8 +36,7 @@ extension DefaultChattingViewModel {
         if let _ = isValidInputText(content) {
             guard lastItem.state != .writing else { return }
             
-            let writingCell = ChatItem(contents: "", role: .user, state: .writing)
-            chatList.append(writingCell)
+            addUserWritingCell()
             
             updateChatList()
             _scrollToBottom.onNext(true)
@@ -51,74 +49,7 @@ extension DefaultChattingViewModel {
             _scrollToBottom.onNext(true)
         }
         
-    }
-    
-    func sendMsgToGPT() {
-        addResponseWaitingCell()
-        
-        print("sendMSGToGPT")
-        let query = ChatQuery(model: .gpt3_5Turbo, messages: getChatQueryList(),
-                              maxTokens: 256,
-                              presencePenalty: 0.6, frequencyPenalty: 0.6)
-        
-        openAI.chats(query: query) { [weak self] result in
-            guard let self = self else { return }
-            print("result: \(result)")
-            
-            switch result {
-            case .success(let success):
-                print("GPT: \(success.choices.map({$0.message}))")
-                guard let chat = success.choices.first?.message else { return }
-                
-                self.removeResponseWaitingCell()
-                
-                let chatItem = ChatItem(contents: chat.content, role: Chat.Role(rawValue: chat.role) ?? .assistant)
-                self.chatList.append(chatItem)
-                
-                self.updateChatList()
-                self._scrollToBottom.onNext(true)
-            case .failure(let failure):
-                print("error: \(failure.localizedDescription)")
-                
-                self.removeResponseWaitingCell()
-                self.updateErrorCell()
-                
-                guard let lastItem = self.chatList.last,
-                      let text = self.isValidInputText(lastItem.contents) else { return }
-                self._showResendView.onNext(text)
-            }
-        }
-    }
-    
-    func addResponseWaitingCell() {
-        guard let lastItem = chatList.last else { return }
-        
-        guard lastItem.state != .responseWaiting else { return }
-        
-        
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
-            let writingCell = ChatItem(contents: "", role: .assistant, state: .responseWaiting)
-            self.chatList.append(writingCell)
-            
-            self.updateChatList()
-            self._scrollToBottom.onNext(true)
-        }
-    }
-    
-    func removeResponseWaitingCell() {
-        if let lastItem = chatList.last,
-           lastItem.state == .responseWaiting {
-            let _ = chatList.popLast()
-        }
-    }
-    
-    func updateErrorCell() {
-        guard let lastItem = chatList.popLast() else { return }
-        var errorItem = lastItem
-        errorItem.state = .error
-        
-        chatList.append(errorItem)
-    }
+    }    
     
     func isValidInputText(_ msg: String?) -> String? {
         guard let text = msg,
