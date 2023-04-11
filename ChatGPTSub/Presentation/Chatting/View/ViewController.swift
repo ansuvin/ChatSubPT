@@ -41,7 +41,6 @@ class ViewController: UIViewController {
         layoutModel.bind(to: viewModel)
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        
     }
 
     func setDelegate() {

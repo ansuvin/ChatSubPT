@@ -48,6 +48,11 @@
 		F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098222029DFEA100095F62A /* ColorExtensions.swift */; };
 		F098222829DFF0880095F62A /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F098222729DFF0880095F62A /* FlexLayout */; };
 		F098222A29DFFEE90095F62A /* ChattingLayout+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */; };
+		F0A677D429E51C9E00B95AFD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677D329E51C9E00B95AFD /* MainViewController.swift */; };
+		F0A677D729E51D0700B95AFD /* MainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677D629E51D0700B95AFD /* MainLayout.swift */; };
+		F0A677D929E51DE100B95AFD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677D829E51DE100B95AFD /* MainViewModel.swift */; };
+		F0A677DB29E5203000B95AFD /* MainLayout+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */; };
+		F0A677DF29E5292000B95AFD /* UINavigationExetensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +85,11 @@
 		F098221A29DFDD520095F62A /* ChatInputBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputBarView.swift; sourceTree = "<group>"; };
 		F098222029DFEA100095F62A /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		F098222929DFFEE90095F62A /* ChattingLayout+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingLayout+Keyboard.swift"; sourceTree = "<group>"; };
+		F0A677D329E51C9E00B95AFD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F0A677D629E51D0700B95AFD /* MainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLayout.swift; sourceTree = "<group>"; };
+		F0A677D829E51DE100B95AFD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainLayout+Bind.swift"; sourceTree = "<group>"; };
+		F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationExetensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +185,7 @@
 			children = (
 				A0C6ED0329E14D0D0069E839 /* Resources */,
 				F098221E29DFE9E20095F62A /* Utils */,
-				F098220F29DFD1570095F62A /* Main */,
+				F0A677CF29E51C4A00B95AFD /* Presentation */,
 				F09821E529DFB15E0095F62A /* AppDelegate.swift */,
 				F09821E729DFB15E0095F62A /* SceneDelegate.swift */,
 				F09821EE29DFB1600095F62A /* Assets.xcassets */,
@@ -185,14 +195,14 @@
 			path = ChatGPTSub;
 			sourceTree = "<group>";
 		};
-		F098220F29DFD1570095F62A /* Main */ = {
+		F098220F29DFD1570095F62A /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
 				A027A1AA29E291840061BCF3 /* Model */,
 				A0C6ED1329E160360069E839 /* ViewModel */,
 				F098221129DFD1770095F62A /* View */,
 			);
-			path = Main;
+			path = Chatting;
 			sourceTree = "<group>";
 		};
 		F098221129DFD1770095F62A /* View */ = {
@@ -243,6 +253,7 @@
 				A027A1A829E28FE30061BCF3 /* DateExtensions.swift */,
 				A02025DB29E2E4AE00E4D323 /* CALayerExtensions.swift */,
 				A02025DD29E2E81300E4D323 /* UIViewExetensions.swift */,
+				F0A677DE29E5292000B95AFD /* UINavigationExetensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +263,58 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0A677CE29E51C2000B95AFD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F0A677D229E51C7E00B95AFD /* Model */,
+				F0A677D129E51C7800B95AFD /* ViewModel */,
+				F0A677D029E51C7100B95AFD /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F0A677CF29E51C4A00B95AFD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F0A677CE29E51C2000B95AFD /* Main */,
+				F098220F29DFD1570095F62A /* Chatting */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F0A677D029E51C7100B95AFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0A677D529E51CFB00B95AFD /* Layout */,
+				F0A677D329E51C9E00B95AFD /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0A677D129E51C7800B95AFD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F0A677D829E51DE100B95AFD /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F0A677D229E51C7E00B95AFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0A677D529E51CFB00B95AFD /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				F0A677D629E51D0700B95AFD /* MainLayout.swift */,
+				F0A677DA29E5203000B95AFD /* MainLayout+Bind.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,10 +420,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C6ED1529E1607E0069E839 /* ChattingViewModel.swift in Sources */,
+				F0A677D429E51C9E00B95AFD /* MainViewController.swift in Sources */,
 				A027A1A929E28FE30061BCF3 /* DateExtensions.swift in Sources */,
 				A0C6ED1B29E16EBC0069E839 /* ViewController+Bind.swift in Sources */,
+				F0A677DB29E5203000B95AFD /* MainLayout+Bind.swift in Sources */,
 				A0C6ED1229E15A160069E839 /* AssistantCell.swift in Sources */,
 				F098221929DFDD270095F62A /* CustomView.swift in Sources */,
+				F0A677D729E51D0700B95AFD /* MainLayout.swift in Sources */,
 				F09821EA29DFB15E0095F62A /* ViewController.swift in Sources */,
 				F09821E629DFB15E0095F62A /* AppDelegate.swift in Sources */,
 				A0C6ED1929E1686B0069E839 /* ChattingViewModel+Input.swift in Sources */,
@@ -370,6 +436,7 @@
 				F09821E829DFB15E0095F62A /* SceneDelegate.swift in Sources */,
 				A0C6ECFD29E144E90069E839 /* MyCell.swift in Sources */,
 				F098221729DFD3F10095F62A /* ChattingLayout.swift in Sources */,
+				F0A677DF29E5292000B95AFD /* UINavigationExetensions.swift in Sources */,
 				A0C6ED1D29E170860069E839 /* ChattingLayout+Bind.swift in Sources */,
 				A0C6ECFF29E145640069E839 /* CommonCell.swift in Sources */,
 				A02025DE29E2E81300E4D323 /* UIViewExetensions.swift in Sources */,
@@ -377,6 +444,7 @@
 				A02025DC29E2E4AE00E4D323 /* CALayerExtensions.swift in Sources */,
 				F098222129DFEA100095F62A /* ColorExtensions.swift in Sources */,
 				A027A1AE29E2BEB80061BCF3 /* ResendView.swift in Sources */,
+				F0A677D929E51DE100B95AFD /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
