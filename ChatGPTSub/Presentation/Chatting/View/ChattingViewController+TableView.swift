@@ -1,5 +1,5 @@
 //
-//  ViewController+TableView.swift
+//  ChattingViewController+TableView.swift
 //  ChatGPTSub
 //
 //  Created by 안수빈 on 2023/04/08.
@@ -12,7 +12,7 @@ import SnapKit
 
 import RxSwift
 
-extension ViewController: UITableViewDataSource {
+extension ChattingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.chatList.count
     }
@@ -43,7 +43,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension ChattingViewController: UITableViewDelegate {
     func scrollToBottom(_ animated: Bool) {
         let lastIndex = IndexPath(row: viewModel.getChatItemList().count - 1, section: 0)
         

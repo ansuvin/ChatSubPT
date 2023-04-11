@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
     }
     
     func moveChat() {
-        let chatVC = ViewController.create()
+        let chatVC = ChattingViewController.create()
         
         navigationController?.pushViewController(chatVC, animated: true)
     }

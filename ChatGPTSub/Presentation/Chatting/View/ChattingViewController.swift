@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChattingViewController.swift
 //  ChatGPTSub
 //
 //  Created by yeoboya on 2023/04/07.
@@ -15,15 +15,15 @@ import OpenAI
 
 import RxSwift
 
-class ViewController: UIViewController {
+class ChattingViewController: UIViewController {
     
     var layoutModel: ChattingLayout!
     var viewModel: ChattingViewModel!
     
     var disposeBag = DisposeBag()
     
-    static func create() -> ViewController {
-        let vc = ViewController()
+    static func create() -> ChattingViewController {
+        let vc = ChattingViewController()
         vc.layoutModel = ChattingLayout()
         vc.viewModel = DefaultChattingViewModel()
         

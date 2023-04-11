@@ -1,5 +1,5 @@
 //
-//  ViewController+Bind.swift
+//  ChattingViewController+Bind.swift
 //  ChatGPTSub
 //
 //  Created by 안수빈 on 2023/04/08.
@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-extension ViewController {
+extension ChattingViewController {
     func bind(to viewModel: ChattingViewModel) {
         viewModel._updateChatItemList
             .withUnretained(self)
