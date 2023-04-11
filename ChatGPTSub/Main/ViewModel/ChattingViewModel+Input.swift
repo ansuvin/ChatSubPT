@@ -70,22 +70,22 @@ extension DefaultChattingViewModel {
                 print("GPT: \(success.choices.map({$0.message}))")
                 guard let chat = success.choices.first?.message else { return }
                 
-                removeResponseWaitingCell()
+                self.removeResponseWaitingCell()
                 
                 let chatItem = ChatItem(contents: chat.content, role: Chat.Role(rawValue: chat.role) ?? .assistant)
                 self.chatList.append(chatItem)
                 
                 self.updateChatList()
-                _scrollToBottom.onNext(true)
+                self._scrollToBottom.onNext(true)
             case .failure(let failure):
                 print("error: \(failure.localizedDescription)")
                 
-                removeResponseWaitingCell()
-                updateErrorCell()
+                self.removeResponseWaitingCell()
+                self.updateErrorCell()
                 
-                guard let lastItem = chatList.last,
-                      let text = isValidInputText(lastItem.contents) else { return }
-                _showResendView.onNext(text)
+                guard let lastItem = self.chatList.last,
+                      let text = self.isValidInputText(lastItem.contents) else { return }
+                self._showResendView.onNext(text)
             }
         }
     }
