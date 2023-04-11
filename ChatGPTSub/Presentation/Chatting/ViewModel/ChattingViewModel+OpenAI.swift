@@ -35,8 +35,9 @@ extension DefaultChattingViewModel {
                 
                 self.updateChatList()
                 self._scrollToBottom.onNext(true)
-            case .failure(let failure):
-                print("error: \(failure.localizedDescription)")
+                
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
                 
                 self.removeResponseWaitingCell()
                 self.updateErrorCell()
@@ -47,4 +48,34 @@ extension DefaultChattingViewModel {
             }
         }
     }
+    
+    func sendReqImageToGPT(content reqStr: String) {
+        
+        let query = ImagesQuery(prompt: reqStr, n: 1, size: .size1024)
+        
+        openAI.images(query: query) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                print("GPT Image: \(success.data.first?.url)")
+                
+                guard let url = success.data.first?.url else { return }
+                let imageCell = ChatItem(contents: reqStr, photoUrl: url, role: .assistant, chatType: .image)
+                self.chatList.append(imageCell)
+                
+                self.updateChatList()
+                self._scrollToBottom.onNext(true)
+                
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+extension String {
+    static let size256 = "256x256"
+    static let size512 = "512x512"
+    static let size1024 = "1024x1024"
 }

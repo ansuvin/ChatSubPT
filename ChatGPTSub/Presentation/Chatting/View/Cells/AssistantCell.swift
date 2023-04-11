@@ -12,12 +12,16 @@ import Then
 import SnapKit
 
 import Lottie
+import Kingfisher
 
 import RxSwift
 
-import OpenAI
-
 class AssistantCell: UITableViewCell, CommonCell {
+   
+    var containerStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 8
+    }
     
     var bgView = UIView().then {
         $0.backgroundColor = .primary300
@@ -27,6 +31,13 @@ class AssistantCell: UITableViewCell, CommonCell {
     var stackView = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 4
+    }
+    
+    var imageContainerView = UIView()
+    var contentsImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+        $0.layer.cornerRadius = 8
+        $0.isHidden = true
     }
     
     var contentsLabel = UILabel().then {
@@ -67,15 +78,19 @@ class AssistantCell: UITableViewCell, CommonCell {
     }
     
     func addComponents() {
-        [bgView, timeLabel].forEach(self.contentView.addSubview(_:))
+        [containerStackView, timeLabel].forEach(self.contentView.addSubview(_:))
+        
+        [imageContainerView, bgView].forEach(containerStackView.addArrangedSubview(_:))
         [stackView].forEach(bgView.addSubview(_:))
         [contentsLabel, loadingIndicatorContainer, assistLabel].forEach(stackView.addArrangedSubview(_:))
+        
+        [contentsImageView].forEach(imageContainerView.addSubview(_:))
         
         [loadingIndicator].forEach(loadingIndicatorContainer.addSubview(_:))
     }
     
     func setConstraints() {
-        bgView.snp.makeConstraints {
+        containerStackView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(8)
             $0.left.equalToSuperview().inset(12)
             $0.width.lessThanOrEqualToSuperview().offset(-100)
@@ -98,16 +113,24 @@ class AssistantCell: UITableViewCell, CommonCell {
     }
     
     func configCell(_ model: ChatItem) {
-        contentsLabel.text = model.contents
         timeLabel.text = model.insDate.timeStr
         
         switch model.state {
-        case .normal:
-            setNomalState()
         case .responseWaiting:
             setResponseWaiting()
+            return
+        case .normal:
+            setNomalState()
         default:
             print("none")
+        }
+        
+        contentsLabel.text = model.contents + model.chatType.contentStr
+        
+        switch model.chatType {
+        case .text: break
+        case .image:
+            setImageType(urlStr: model.photoUrl)
         }
         
     }
@@ -127,6 +150,20 @@ class AssistantCell: UITableViewCell, CommonCell {
         assistLabel.text = "답변중"
     }
     
+    func setImageType(urlStr: String?) {
+        guard let urlStr = urlStr,
+              let url = URL(string: urlStr) else { return }
+        
+        contentsImageView.isHidden = false
+        contentsImageView.kf.setImage(with: url)
+        
+        contentsImageView.snp.makeConstraints {
+            $0.size.equalTo(180)
+            $0.left.top.bottom.equalToSuperview()
+            $0.right.lessThanOrEqualToSuperview()
+        }
+    }
+    
     override func prepareForReuse() {
         contentsLabel.text = ""
         
@@ -136,5 +173,8 @@ class AssistantCell: UITableViewCell, CommonCell {
         loadingIndicatorContainer.isHidden = true
         loadingIndicator.stop()
         assistLabel.isHidden = true
+        
+        contentsImageView.snp.removeConstraints()
+        contentsImageView.isHidden = true
     }
 }

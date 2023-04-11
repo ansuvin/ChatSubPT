@@ -65,10 +65,13 @@ class DefaultChattingViewModel: ChattingViewModel {
     }
     
     func testAppend() {
-        chatList.append(ChatItem(contents: "안녕 ChatGPT!", role: .user, insDate: Date()))
-        chatList.append(ChatItem(contents: "네 안녕하세요", role: .assistant, insDate: Date()))
-        chatList.append(ChatItem(contents: "스타벅스에 음료 하나 추천해줘", role: .user, insDate: Date()))
-        chatList.append(ChatItem(contents: "스타벅스에서는 돌체 콜드브루 라떼가 맛있습니다. 더 도와드릴게 있나요?", role: .assistant, insDate: Date()))
+//        chatList.append(ChatItem(contents: "안녕 ChatGPT!", role: .user, insDate: Date()))
+//        chatList.append(ChatItem(contents: "네 안녕하세요", role: .assistant, insDate: Date()))
+//        chatList.append(ChatItem(contents: "스타벅스에 음료 하나 추천해줘", role: .user, insDate: Date()))
+//        chatList.append(ChatItem(contents: "스타벅스에서는 돌체 콜드브루 라떼가 맛있습니다. 더 도와드릴게 있나요?", role: .assistant, insDate: Date()))
+        
+        chatList.append(ChatItem(contents: "Marv is a chatbot that reluctantly answers questions with sarcastic responses", role: .user, insDate: Date()))
+        chatList.append(ChatItem(contents: "어쩔티비", role: .assistant, insDate: Date()))
         
         updateChatList()
     }

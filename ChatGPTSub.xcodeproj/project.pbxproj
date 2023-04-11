@@ -56,6 +56,7 @@
 		F0A677E229E52FD200B95AFD /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E129E52FD200B95AFD /* HeaderBar.swift */; };
 		F0A677E429E53FF000B95AFD /* ChattingViewModel+OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E329E53FF000B95AFD /* ChattingViewModel+OpenAI.swift */; };
 		F0A677E629E5404000B95AFD /* ChattingViewModel+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A677E529E5404000B95AFD /* ChattingViewModel+Cell.swift */; };
+		F0A677E929E546A300B95AFD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F0A677E829E546A300B95AFD /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 				F09821FB29DFB1AB0095F62A /* OpenAI in Frameworks */,
 				A0C6ECF829E142540069E839 /* ReactiveMoya in Frameworks */,
 				A0C6ECF629E142540069E839 /* Moya in Frameworks */,
+				F0A677E929E546A300B95AFD /* Kingfisher in Frameworks */,
 				F09821FE29DFCE520095F62A /* SnapKit in Frameworks */,
 				F098220C29DFD11F0095F62A /* RxCocoa in Frameworks */,
 				F098220E29DFD11F0095F62A /* RxRelay in Frameworks */,
@@ -365,6 +367,7 @@
 				A0C6ECF729E142540069E839 /* ReactiveMoya */,
 				A0C6ECF929E142540069E839 /* RxMoya */,
 				A0C6ED0129E14B270069E839 /* Lottie */,
+				F0A677E829E546A300B95AFD /* Kingfisher */,
 			);
 			productName = ChatGPTSub;
 			productReference = F09821E229DFB15E0095F62A /* ChatGPTSub.app */;
@@ -405,6 +408,7 @@
 				A0C6ECEF29E142290069E839 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				A0C6ECF229E142540069E839 /* XCRemoteSwiftPackageReference "Moya" */,
 				A0C6ED0029E14B270069E839 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				F0A677E729E546A300B95AFD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F09821E329DFB15E0095F62A /* Products */;
 			projectDirPath = "";
@@ -756,6 +760,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		F0A677E729E546A300B95AFD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -828,6 +840,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F098220429DFCE9F0095F62A /* XCRemoteSwiftPackageReference "FlexLayout" */;
 			productName = FlexLayout;
+		};
+		F0A677E829E546A300B95AFD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0A677E729E546A300B95AFD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
