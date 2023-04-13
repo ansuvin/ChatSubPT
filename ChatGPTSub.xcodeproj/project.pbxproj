@@ -195,6 +195,7 @@
 			children = (
 				A0C6ED0329E14D0D0069E839 /* Resources */,
 				F098221E29DFE9E20095F62A /* Utils */,
+				F0B7A01129E79322005357F2 /* Data */,
 				F0A677CF29E51C4A00B95AFD /* Presentation */,
 				F09821E529DFB15E0095F62A /* AppDelegate.swift */,
 				F09821E729DFB15E0095F62A /* SceneDelegate.swift */,
@@ -334,6 +335,37 @@
 				F0A677E129E52FD200B95AFD /* HeaderBar.swift */,
 			);
 			path = CommonComponent;
+			sourceTree = "<group>";
+		};
+		F0B7A01129E79322005357F2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F0B7A01229E79342005357F2 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F0B7A01229E79342005357F2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F0B7A01329E79351005357F2 /* API */,
+				F0B7A01429E79387005357F2 /* RequestDTO */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F0B7A01329E79351005357F2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F0B7A01429E79387005357F2 /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RequestDTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

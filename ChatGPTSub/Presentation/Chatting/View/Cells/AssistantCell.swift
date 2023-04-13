@@ -33,11 +33,13 @@ class AssistantCell: UITableViewCell, CommonCell {
         $0.spacing = 4
     }
     
-    var imageContainerView = UIView()
+    var imageContainerView = UIView().then {
+        $0.isHidden = true
+    }
+    
     var contentsImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.layer.cornerRadius = 8
-        $0.isHidden = true
     }
     
     var contentsLabel = UILabel().then {
@@ -154,13 +156,13 @@ class AssistantCell: UITableViewCell, CommonCell {
         guard let urlStr = urlStr,
               let url = URL(string: urlStr) else { return }
         
-        contentsImageView.isHidden = false
+        imageContainerView.isHidden = false
         contentsImageView.kf.setImage(with: url)
         
         contentsImageView.snp.makeConstraints {
             $0.size.equalTo(180)
             $0.left.top.bottom.equalToSuperview()
-            $0.right.lessThanOrEqualToSuperview()
+            $0.right.greaterThanOrEqualToSuperview()
         }
     }
     
@@ -175,6 +177,6 @@ class AssistantCell: UITableViewCell, CommonCell {
         assistLabel.isHidden = true
         
         contentsImageView.snp.removeConstraints()
-        contentsImageView.isHidden = true
+        imageContainerView.isHidden = true
     }
 }

@@ -51,7 +51,9 @@ extension DefaultChattingViewModel {
     
     func sendReqImageToGPT(content reqStr: String) {
         
-        let query = ImagesQuery(prompt: reqStr, n: 1, size: .size1024)
+        print("sendReqImageToGPT")
+        var prompt = reqStr.replacingOccurrences(of: "그려줘", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+        let query = ImagesQuery(prompt: prompt, n: 1, size: .size1024)
         
         openAI.images(query: query) { [weak self] result in
             guard let self = self else { return }
@@ -61,7 +63,7 @@ extension DefaultChattingViewModel {
                 print("GPT Image: \(success.data.first?.url)")
                 
                 guard let url = success.data.first?.url else { return }
-                let imageCell = ChatItem(contents: reqStr, photoUrl: url, role: .assistant, chatType: .image)
+                let imageCell = ChatItem(contents: prompt, photoUrl: url, role: .assistant, chatType: .image)
                 self.chatList.append(imageCell)
                 
                 self.updateChatList()

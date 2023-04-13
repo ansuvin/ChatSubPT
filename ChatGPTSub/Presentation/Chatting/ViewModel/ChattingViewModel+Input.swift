@@ -25,9 +25,11 @@ extension DefaultChattingViewModel {
         updateChatList()
         _scrollToBottom.onNext(false)
         
-        if content.contains("")
-//        sendMsgToGPT()
-        sendReqImageToGPT(content: content)
+        if content.contains("그려줘") {
+            sendReqImageToGPT(content: content)
+        } else {
+            sendMsgToGPT()
+        }
         
         _clearInputBar.onNext(())
     }
